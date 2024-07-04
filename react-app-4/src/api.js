@@ -13,10 +13,12 @@ const searchImages = async (term) => {
       query: term,
     },
   });
+  /*
   console.log(response); //will show status and extra details of request made
   console.log(response.data.results); // array contaning links to photos
   console.log(response.data); // array containing meta data + results
-  return response;
+  */
+  return response.data.results;
 };
 
 export default searchImages;

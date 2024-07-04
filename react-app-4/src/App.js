@@ -1,15 +1,19 @@
 import SearchBar from "./components/SearchBar";
+import ImageList from "./components/ImageList";
 import searchImages from "./api";
+import { useState } from "react";
 
 export default function App() {
-  // we can use async await here in handleSubmit as a good practice
-  // but handle no need as nothing in parent component need time to reload
-  const handleSubmit = (term) => {
-    searchImages(term);
+  const [images, setImages] = useState([]);
+
+  const handleSubmit = async (term) => {
+    const result = await searchImages(term);
+    setImages(result);
   };
   return (
     <div>
       <SearchBar onSubmit={handleSubmit} />
+      <ImageList images={images} />
     </div>
   );
 }
