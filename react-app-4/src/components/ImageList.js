@@ -1,12 +1,20 @@
+import ImageShow from "./ImageShow";
+import "./ImageList.css";
+
 export default function ImageList({ images }) {
-  images.forEach((element) => {
-    console.log(element.urls.full);
+  const renderedImage = images.map((image) => {
+    /*correct way to assign key*/
+    return (
+      <ImageShow
+        key={image.id}
+        image={image.urls.raw}
+        alt={image.alt_description}
+      />
+    );
   });
-  console.log(images[0]);
-  return (
-    <div>
-      Image List
-      {/* <img src={images[0].id} alt='imgeez' /> */}
-    </div>
+  return renderedImage.length <= 0 ? (
+    <div>NO IMAGE TO SHOW</div>
+  ) : (
+    <div className='image-list'>{renderedImage}</div>
   );
 }

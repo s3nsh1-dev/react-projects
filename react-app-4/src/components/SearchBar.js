@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SearchBar.css";
 
 export default function SearchBar({ onSubmit }) {
   const [term, setTerm] = useState("");
@@ -14,7 +15,7 @@ export default function SearchBar({ onSubmit }) {
     setTerm(event.target.value);
   };
   return (
-    <div>
+    <div className='search-bar'>
       {/* using form because its default behaviour is getting submitted after ENTER key press */}
       <form onSubmit={handleFormSubmit}>
         {/* every single time user make change into the input box handleChange is gonna call and event will help taking values of input field and fill in into the term state */}
