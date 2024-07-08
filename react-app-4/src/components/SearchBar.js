@@ -17,6 +17,7 @@ export default function SearchBar({ onSubmit }) {
   return (
     <div className='search-bar'>
       {/* using form because its default behaviour is getting submitted after ENTER key press */}
+      Search Images
       <form onSubmit={handleFormSubmit}>
         {/* every single time user make change into the input box handleChange is gonna call and event will help taking values of input field and fill in into the term state */}
         <input value={term} onChange={handleChange} />
