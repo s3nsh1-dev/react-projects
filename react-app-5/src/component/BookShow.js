@@ -1,5 +1,17 @@
 import React from "react";
 
-export default function BookShow() {
-  return <div>BookShow</div>;
+export default function BookShow({ book, onDelete }) {
+  const handleDelete = () => {
+    onDelete(book.id);
+  };
+  return (
+    <div className='book-show'>
+      {book.title}
+      <div className='actions'>
+        <button className='delete' onClick={handleDelete}>
+          Delete
+        </button>
+      </div>
+    </div>
+  );
 }
