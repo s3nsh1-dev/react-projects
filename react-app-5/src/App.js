@@ -1,5 +1,18 @@
+// import { useState } from "react";
+import BookCreate from "./component/BookCreate";
+
 function App() {
-  return <div>App component shamlessly keeping the streak alive</div>;
+  // const [books, setBooks] = useState([]);
+
+  const createBook = (title) => {
+    console.log("New Book Title:", title);
+  };
+
+  return (
+    <div>
+      <BookCreate onCreate={createBook} />
+    </div>
+  );
 }
 
 export default App;
