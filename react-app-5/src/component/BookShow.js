@@ -10,12 +10,16 @@ export default function BookShow({ book, onDelete, onEdit }) {
     onDelete(book.id);
   };
 
+  const handleEditClick = () => {
+    setShowEdit(!showEdit);
+  };
+
   // fetch newTitle from BookEdit.js, when done closes the Edit window
   const handleEdit = (id, newTitle) => {
     /* when handleEdit is called showEdit is changed but while its
     inside the function the value of showedit remains false/true it
     changes when exist the function all because of JS asynchronus nature */
-    setShowEdit(!showEdit);
+    setShowEdit(false);
     // contain reference of function from App.js to replace title
     onEdit(id, newTitle);
   };
@@ -35,12 +39,7 @@ export default function BookShow({ book, onDelete, onEdit }) {
       <img src={`https://picsum.photos/seed/${book.id}/300/200`} alt='books' />
 
       <div className='actions'>
-        <button
-          className='edit'
-          onClick={() => {
-            setShowEdit(!showEdit);
-          }}
-        >
+        <button className='edit' onClick={handleEditClick}>
           Edit
         </button>
         <button className='delete' onClick={handleDelete}>
