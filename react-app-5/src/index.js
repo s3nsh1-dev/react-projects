@@ -3,11 +3,15 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
+import { Provider } from "./context/Books";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  // React.StrictMode is not a must to have feature
   <React.StrictMode>
-    <App />
+    <Provider>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
