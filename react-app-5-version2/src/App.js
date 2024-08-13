@@ -8,9 +8,10 @@ function App() {
   // will fetchbooks to show the previous list of books entry
   const { fetchBooks } = useContext(BooksContext);
 
+  // first render + everyfetchBook change
   useEffect(() => {
     fetchBooks();
-  }, []);
+  }, [fetchBooks]);
 
   // no need to pass down the functions to children
   return (
