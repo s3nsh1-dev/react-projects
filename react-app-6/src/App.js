@@ -1,5 +1,33 @@
-import React from "react";
+import Button from "./Button";
 
-export default function App() {
-  return <div>App</div>;
+function App() {
+  return (
+    <div>
+      <div>
+        <Button outline primary>
+          Click me!!
+        </Button>
+      </div>
+      <div>
+        <Button danger rounded>
+          Buy Now!
+        </Button>
+      </div>
+      <div>
+        <Button warning>See Deal!</Button>
+      </div>
+      <div>
+        <Button secondary outline>
+          Hide Ads!
+        </Button>
+      </div>
+      <div>
+        <Button primary rounded>
+          Something!
+        </Button>
+      </div>
+    </div>
+  );
 }
+
+export default App;
