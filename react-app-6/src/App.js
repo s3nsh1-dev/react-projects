@@ -1,5 +1,4 @@
 import Accordion from "./components/Accordion";
-// import ButtonPage from "./pages/ButtonPage";
 
 function App() {
   const items = [
@@ -25,7 +24,7 @@ function App() {
 
   return (
     <>
-      <Accordion items={items} />;{/* <ButtonPage /> */}
+      <Accordion items={items} />;
     </>
   );
 }
