@@ -1,5 +1,6 @@
 import className from "classnames";
 import { twMerge } from "tailwind-merge";
+
 function Button({
   children,
   primary,
