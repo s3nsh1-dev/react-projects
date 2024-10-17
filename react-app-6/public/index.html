@@ -39,5 +39,12 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- dedicated div created for modal else if we use modal at component
+      where its positioned in a way that modal never get access to the HTML
+      element and when it comes to cover the page and show modal things
+      might go wrong so showing modal in dedicated place mean it will
+      never have a positioned parent and the area cover will always
+      be on whole HTML element -->
+    <div class="modal-container"></div>
   </body>
 </html>
