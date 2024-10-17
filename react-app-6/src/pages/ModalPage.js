@@ -1,18 +1,24 @@
-import { useState } from 'react';
-import Modal from '../components/Modal';
-import Button from '../components/Button';
+import { useState } from "react";
+import Modal from "../components/Modal";
+import Button from "../components/Button";
 
 function ModalPage() {
+  // State to manage the opening and closing of modal
   const [showModal, setShowModal] = useState(false);
 
+  // Function to open the modal when button is clicked
+  // and close it when it's closed
   const handleClick = () => {
     setShowModal(true);
   };
 
+  // Function to close the modal when it's clicked outside
+  // the modal area or button inside modal is clicked
   const handleClose = () => {
     setShowModal(false);
   };
 
+  // Button to be displayed inside the modal
   const actionBar = (
     <div>
       <Button onClick={handleClose} primary>
@@ -31,8 +37,9 @@ function ModalPage() {
       <Button onClick={handleClick} primary>
         Open Modal
       </Button>
+      {/* check if modal is opened or not to show component */}
       {showModal && modal}
-
+      {/* lorem ipsum to check modal performance when scrolling */}
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In feugiat elit
         in est interdum fermentum. Cras vehicula a urna sit amet auctor. Mauris
