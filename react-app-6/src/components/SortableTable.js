@@ -1,6 +1,6 @@
-import { GoArrowSmallDown, GoArrowSmallUp } from 'react-icons/go';
-import Table from './Table';
-import useSort from '../hooks/use-sort';
+import { GoArrowSmallDown, GoArrowSmallUp } from "react-icons/go";
+import Table from "./Table";
+import useSort from "../hooks/use-sort";
 
 function SortableTable(props) {
   const { config, data } = props;
@@ -17,11 +17,12 @@ function SortableTable(props) {
     return {
       ...column,
       header: () => (
+        // setSortColumn decide the sorting mechanism
         <th
-          className="cursor-pointer hover:bg-gray-100"
+          className='cursor-pointer hover:bg-gray-100'
           onClick={() => setSortColumn(column.label)}
         >
-          <div className="flex items-center">
+          <div className='flex items-center'>
             {getIcons(column.label, sortBy, sortOrder)}
             {column.label}
           </div>
@@ -30,6 +31,7 @@ function SortableTable(props) {
     };
   });
 
+  // {...props} way to destruct with less code
   return <Table {...props} data={sortedData} config={updatedConfig} />;
 }
 
@@ -50,13 +52,13 @@ function getIcons(label, sortBy, sortOrder) {
         <GoArrowSmallDown />
       </div>
     );
-  } else if (sortOrder === 'asc') {
+  } else if (sortOrder === "asc") {
     return (
       <div>
         <GoArrowSmallUp />
       </div>
     );
-  } else if (sortOrder === 'desc') {
+  } else if (sortOrder === "desc") {
     return (
       <div>
         <GoArrowSmallDown />

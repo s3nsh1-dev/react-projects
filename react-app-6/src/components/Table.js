@@ -1,6 +1,7 @@
-import { Fragment } from 'react';
+import { Fragment } from "react";
 
 function Table({ data, config, keyFn }) {
+  // heading of the table
   const renderedHeaders = config.map((column) => {
     if (column.header) {
       return <Fragment key={column.label}>{column.header()}</Fragment>;
@@ -9,26 +10,27 @@ function Table({ data, config, keyFn }) {
     return <th key={column.label}>{column.label}</th>;
   });
 
+  // render rows of table with data from data array and config object
   const renderedRows = data.map((rowData) => {
     const renderedCells = config.map((column) => {
       return (
-        <td className="p-2" key={column.label}>
+        <td className='p-2' key={column.label}>
           {column.render(rowData)}
         </td>
       );
     });
 
     return (
-      <tr className="border-b" key={keyFn(rowData)}>
+      <tr className='border-b' key={keyFn(rowData)}>
         {renderedCells}
       </tr>
     );
   });
 
   return (
-    <table className="table-auto border-spacing-2">
+    <table className='table-auto border-spacing-2'>
       <thead>
-        <tr className="border-b-2">{renderedHeaders}</tr>
+        <tr className='border-b-2'>{renderedHeaders}</tr>
       </thead>
       <tbody>{renderedRows}</tbody>
     </table>
