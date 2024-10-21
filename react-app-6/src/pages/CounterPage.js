@@ -2,11 +2,14 @@ import { useReducer } from "react";
 import Button from "../components/Button";
 import Panel from "../components/Panel";
 
+// using variables help reduce typos
 const INCREMENT_COUNT = "increment";
 const SET_VALUE_TO_ADD = "change_value_to_add";
 const DECREMENT_COUNT = "decrement";
 const ADD_VALUE_TO_COUNT = "add_value_to_count";
 
+// Reducer function that handles state changes and called when we mention dispatch function
+// in reducers there is not place for 3rd variable
 const reducer = (state, action) => {
   switch (action.type) {
     case INCREMENT_COUNT:
@@ -35,13 +38,16 @@ const reducer = (state, action) => {
   }
 };
 
+// reducers way to create and mutate states
 function CounterPage({ initialCount }) {
   const [state, dispatch] = useReducer(reducer, {
+    // these both keys are state
     count: initialCount,
     valueToAdd: 0,
   });
 
   const increment = () => {
+    // call reducers with sending INCREMENT_COUNT in action.type
     dispatch({
       type: INCREMENT_COUNT,
     });
@@ -60,8 +66,10 @@ function CounterPage({ initialCount }) {
     });
   };
   const handleSubmit = (event) => {
+    // prevent form from submitting automatically
     event.preventDefault();
 
+    // call to add value in text field and count state(state.count)
     dispatch({
       type: ADD_VALUE_TO_COUNT,
     });
