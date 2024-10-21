@@ -58,6 +58,7 @@ function CounterPage({ initialCount }) {
     });
   };
   const handleChange = (event) => {
+    // if user submits "empty value" as the number to add in count then assign state.valueToAdd = 0
     const value = parseInt(event.target.value) || 0;
 
     dispatch({
@@ -86,8 +87,10 @@ function CounterPage({ initialCount }) {
       <form onSubmit={handleSubmit}>
         <label>Add a lot!</label>
         <input
+          // if the value in 0 inside textfield the empty the textfield and its value is sets to 0 when added to count
           value={state.valueToAdd || ""}
           onChange={handleChange}
+          // event toughs the type is clearly mentioned as number but the data in console log is of type string
           type='number'
           className='p-1 m-3 bg-gray-50 border border-gray-300'
         />
