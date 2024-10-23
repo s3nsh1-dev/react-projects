@@ -4,6 +4,8 @@ import MoviePlaylist from "./components/MoviePlaylist";
 import SongPlaylist from "./components/SongPlaylist";
 import { reset } from "./store";
 
+// commnets comming soon
+
 export default function App() {
   const dispatch = useDispatch();
 
