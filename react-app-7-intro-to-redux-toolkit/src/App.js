@@ -4,9 +4,8 @@ import MoviePlaylist from "./components/MoviePlaylist";
 import SongPlaylist from "./components/SongPlaylist";
 import { reset } from "./store";
 
-// commnets comming soon
-
 export default function App() {
+  // reset() is common for both movies and songs
   const dispatch = useDispatch();
 
   const handleResetClick = () => {

@@ -4,13 +4,17 @@ import { addSong, removeSong } from "../store";
 
 function SongPlaylist() {
   const dispatch = useDispatch();
+
+  // copy all of the state.song(present in Redux store) array data to songPlaylist
   const songPlaylist = useSelector((state) => {
     return state.songs;
   });
 
+  // dispatch an action to add a new song to the Redux store
   const handleSongAdd = (song) => {
     dispatch(addSong(song));
   };
+  // dispatch an action to remove a song from the Redux store
   const handleSongRemove = (song) => {
     dispatch(removeSong(song));
   };

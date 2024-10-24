@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { reset } from "../actions";
 
+// hindi chini bhai bhai -> see movies for steps based comments
+
 const songsSlice = createSlice({
   name: "song",
   initialState: [],
