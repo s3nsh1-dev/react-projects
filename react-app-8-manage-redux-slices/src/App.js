@@ -1,10 +1,17 @@
-import React from "react";
-// import { BrowserRouter, Routes, Route } from "react-dom";
+import CarForm from './components/CarForm';
+import CarList from './components/CarList';
+import CarSearch from './components/CarSearch';
+import CarValue from './components/CarValue';
 
-export default function App() {
+function App() {
   return (
-    <div className='p-4'>
-      <h1 className='text-3xl font-bold text-blue-600'>Hello Tailwind CSS!</h1>
+    <div className="container is-fluid">
+      <CarForm />
+      <CarSearch />
+      <CarList />
+      <CarValue />
     </div>
   );
 }
+
+export default App;
