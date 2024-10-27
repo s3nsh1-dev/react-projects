@@ -7,3 +7,5 @@ export default function App() {
     </div>
   );
 }
+
+// GET http://localhost:3001/users
