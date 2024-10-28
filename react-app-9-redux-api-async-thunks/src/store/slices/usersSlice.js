@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchUsers } from "../thunks/fetchUsers";
+import { addUser } from "../thunks/addUser";
+import { fa } from "@faker-js/faker";
 
 const usersSlice = createSlice({
   name: "users",
@@ -28,6 +30,19 @@ const usersSlice = createSlice({
       when loading does not goes well thunk creates an error object
       action.error is that error object
       */
+      state.error = action.error;
+    });
+    builder.addCase(addUser.pending, (state, action) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(addUser.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.data.push(action.payload);
+    });
+
+    builder.addCase(addUser.rejected, (state, action) => {
+      state.isLoading = false;
       state.error = action.error;
     });
   },
