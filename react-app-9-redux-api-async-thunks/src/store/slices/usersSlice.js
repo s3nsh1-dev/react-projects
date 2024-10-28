@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchUsers } from "../thunks/fetchUsers";
 import { addUser } from "../thunks/addUser";
-import { fa } from "@faker-js/faker";
 
 const usersSlice = createSlice({
   name: "users",
