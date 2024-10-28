@@ -23,6 +23,8 @@ const usersSlice = createSlice({
       state.isLoading = false;
       state.data = action.payload;
     });
+
+    // for addUser the path will be: fetch/addUser/pending-fulfilled-rejected
     builder.addCase(fetchUsers.rejected, (state, action) => {
       state.isLoading = false;
       /*
