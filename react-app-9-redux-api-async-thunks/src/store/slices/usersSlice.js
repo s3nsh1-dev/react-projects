@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchUsers } from "../thunks/fetchUsers";
+import { addUser } from "../thunks/addUser";
 
 const usersSlice = createSlice({
   name: "users",
@@ -22,12 +23,27 @@ const usersSlice = createSlice({
       state.isLoading = false;
       state.data = action.payload;
     });
+
+    // for addUser the path will be: fetch/addUser/pending-fulfilled-rejected
     builder.addCase(fetchUsers.rejected, (state, action) => {
       state.isLoading = false;
       /*
       when loading does not goes well thunk creates an error object
       action.error is that error object
       */
+      state.error = action.error;
+    });
+    builder.addCase(addUser.pending, (state, action) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(addUser.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.data.push(action.payload);
+    });
+
+    builder.addCase(addUser.rejected, (state, action) => {
+      state.isLoading = false;
       state.error = action.error;
     });
   },
