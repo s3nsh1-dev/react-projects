@@ -6,8 +6,7 @@ running axios.delete will need delete the user from backend storage
  */
 
 export const removeUser = createAsyncThunk("users/remove", async (user) => {
-  const response = await axios.delete(`http://localhost:3001/users/${user.id}`);
-
-  // FIX !!
-  return response.data;
+  await axios.delete(`http://localhost:3001/users/${user.id}`);
+  //   console.log(user);
+  return user;
 });
