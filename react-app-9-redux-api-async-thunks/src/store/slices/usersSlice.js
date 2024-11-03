@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUsers } from "../thunks/fetchUsers";
-import { addUser } from "../thunks/addUser";
-import { removeUser } from "../thunks/removeUser";
+import { addUser, removeUser, fetchUsers } from "../";
 
 const usersSlice = createSlice({
   name: "users",
@@ -53,6 +51,7 @@ const usersSlice = createSlice({
     builder.addCase(removeUser.fulfilled, (state, action) => {
       state.isLoading = false;
       //deleting the user from the array of users object
+      // action.payload is users object being returned from removeUser thunk call
       state.data = state.data.filter((user) => user.id !== action.payload.id);
     });
     builder.addCase(removeUser.rejected, (state, action) => {

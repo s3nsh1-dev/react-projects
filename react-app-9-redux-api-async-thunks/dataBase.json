@@ -1,12 +1,16 @@
 {
   "users": [
     {
-      "id": "3c47",
-      "name": "Alex Windler"
+      "id": 1,
+      "name": "Myra"
     },
     {
-      "id": "52ba",
-      "name": "Charlotte Murphy"
+      "name": "Elsie Price",
+      "id": 3
+    },
+    {
+      "name": "Harold Strosin",
+      "id": 4
     }
   ],
   "albums": [],
