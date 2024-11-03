@@ -7,6 +7,7 @@ import { useThunk } from "../hooks/use-thunk";
 export default function UsersListItem({ user }) {
   const [doRemoveUser, isLoading, error] = useThunk(removeUser);
   const handleClick = () => {
+    // here user means the lone user whose delete button was clicked
     doRemoveUser(user);
   };
   return (
