@@ -1,16 +1,16 @@
 {
   "users": [
     {
-      "id": "0fcc",
-      "name": "Sonia Klocko"
+      "id": 1,
+      "name": "Myra"
     },
     {
-      "id": "a4ff",
-      "name": "Beth Hartmann"
+      "name": "Elsie Price",
+      "id": 3
     },
     {
-      "id": "64cd",
-      "name": "Florence Schmidt"
+      "name": "Harold Strosin",
+      "id": 4
     }
   ],
   "albums": [],
