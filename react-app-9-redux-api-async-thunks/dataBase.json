@@ -1,18 +1,48 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Myra"
+      "name": "Myra Theil",
+      "id": 1
     },
     {
-      "name": "Elsie Price",
+      "name": "Ravidas Shukla",
+      "id": 2
+    },
+    {
+      "name": "Kartikey Jaishankar",
       "id": 3
     },
     {
-      "name": "Harold Strosin",
+      "name": "Shubham Pandey",
       "id": 4
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": "myra01-album",
+      "title": "Safari",
+      "userId": 1
+    },
+    {
+      "id": "shubham04-album",
+      "title": "Skydiving",
+      "userId": 4
+    },
+    {
+      "id": "4e43",
+      "userId": 1,
+      "title": "Recycled Cotton Pants"
+    },
+    {
+      "id": "d579",
+      "userId": 1,
+      "title": "Rustic Concrete Shirt"
+    },
+    {
+      "id": "701d",
+      "userId": 2,
+      "title": "Sleek Frozen Shoes"
+    }
+  ],
   "photos": []
 }
