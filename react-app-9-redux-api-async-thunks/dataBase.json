@@ -2,19 +2,19 @@
   "users": [
     {
       "name": "Myra Theil",
-      "id": 1
+      "id": "1"
     },
     {
       "name": "Ravidas Shukla",
-      "id": 2
+      "id": "2"
     },
     {
       "name": "Kartikey Jaishankar",
-      "id": 3
+      "id": "3"
     },
     {
       "name": "Shubham Pandey",
-      "id": 4
+      "id": "4"
     }
   ],
   "albums": [
@@ -42,6 +42,26 @@
       "id": "701d",
       "userId": 2,
       "title": "Sleek Frozen Shoes"
+    },
+    {
+      "id": "6fcb",
+      "userId": "1",
+      "title": "Gorgeous Soft Table"
+    },
+    {
+      "id": "94ad",
+      "userId": "1",
+      "title": "Licensed Steel Gloves"
+    },
+    {
+      "id": "7023",
+      "userId": "2",
+      "title": "Electronic Cotton Bike"
+    },
+    {
+      "id": "ceaa",
+      "userId": "1",
+      "title": "Sleek Wooden Chips"
     }
   ],
   "photos": []
