@@ -9,13 +9,14 @@ states related to the request we are going gto make with thi API
 */
 export const albumsApi = createApi({
   reducerPath: "albums",
-  // gives use pre-configured version of fetch
+  // this method uses pre-configured version of fetch
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3001", // base URL of the API
   }),
   endpoints(builder) {
     return {
       fetchAlbums: builder.query({
+        providesTags: ["Album"],
         query: (user) => {
           return {
             url: "/albums",
@@ -27,6 +28,7 @@ export const albumsApi = createApi({
         },
       }),
       addAlbum: builder.mutation({
+        invalidatesTags: ["Album"],
         query: (user) => {
           return {
             url: "/albums",
