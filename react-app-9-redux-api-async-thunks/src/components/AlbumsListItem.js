@@ -5,6 +5,11 @@ import ExpandablePanel from "./ExpandablePanel";
 
 function AlbumsListItem({ album }) {
   const [removeAlbum, results] = useRemoveAlbumMutation();
+  /*
+  in simple words results can also be called mutationState as
+  it share the state of mutation when some action is performed
+  with request which changes the state of the album
+  */
 
   const handleRemoveAlbum = () => {
     removeAlbum(album);
