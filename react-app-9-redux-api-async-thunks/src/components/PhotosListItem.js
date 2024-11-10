@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function PhotosListItem() {
-  return <div></div>;
+  return <div>PhotosListItem</div>;
 }
