@@ -21,7 +21,7 @@ export const albumsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3001", // base URL of the API
     fetchFn: async (...args) => {
-      // REMOVE FOR PRODUCTION
+      // REMOVE FOR PRODUCTION: added to remove lag between deletion and re-fetching data
       await pause(1000);
       return fetch(...args);
     },
@@ -30,6 +30,8 @@ export const albumsApi = createApi({
     return {
       removeAlbum: builder.mutation({
         invalidatesTags: (result, error, album) => {
+          // result is the DB data we fetched from the server
+          // we we get an error, we use error instead
           return [{ type: "Album", id: album.id }];
         },
         query: (album) => {
@@ -55,7 +57,10 @@ export const albumsApi = createApi({
         },
       }),
       fetchAlbums: builder.query({
+        // here user is the value sent with request i can be named
+        // anything but for simplicity user is used
         providesTags: (result, error, user) => {
+          // creating set of tags based on albums of the requested user
           const tags = result.map((album) => {
             return { type: "Album", id: album.id };
           });

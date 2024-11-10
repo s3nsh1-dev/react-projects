@@ -47,7 +47,23 @@
       "id": "3530",
       "userId": "1",
       "title": "Incredible Soft Bike"
+    },
+    {
+      "id": "5040",
+      "userId": "1",
+      "title": "Small Plastic Car"
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "id": "752d",
+      "albumId": "94ad",
+      "url": "https://picsum.photos/seed/T7xwq/3899/3961"
+    },
+    {
+      "id": "d44b",
+      "albumId": "94ad",
+      "url": "https://loremflickr.com/337/555?lock=7278728496333523"
+    }
+  ]
 }

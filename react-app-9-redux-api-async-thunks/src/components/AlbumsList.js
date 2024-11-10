@@ -7,10 +7,10 @@ function AlbumsList({ user }) {
   // calling of the below function will be automatic when user selects a name
   const { data, error, isFetching } = useFetchAlbumsQuery(user);
   const [addAlbum, results] = useAddAlbumMutation();
+  // results object provides information about the mutation's current state
   const handleAddAlbum = () => {
     addAlbum(user);
   };
-
   /*
   as status of types (pending/fulfilled/rejected) is being
   changed multiple times and the rendering will be multiple the
