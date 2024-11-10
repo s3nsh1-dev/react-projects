@@ -11,8 +11,6 @@ function AlbumsList({ user }) {
   const handleAddAlbum = () => {
     addAlbum(user);
   };
-
-  console.log("results: ", results);
   /*
   as status of types (pending/fulfilled/rejected) is being
   changed multiple times and the rendering will be multiple the
