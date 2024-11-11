@@ -1,3 +1,5 @@
+// below code is named as albumsApi Slice
+
 import { fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { faker } from "@faker-js/faker";

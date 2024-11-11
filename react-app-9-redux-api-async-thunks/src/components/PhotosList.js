@@ -4,6 +4,10 @@ import Skeleton from "./Skeleton";
 import PhotosListItem from "./PhotosListItem";
 
 function PhotosList({ album }) {
+  /*
+  return value from use useFetchPhotosQuery and etc is an object containing
+  status of flowing action (pending->fulfilled/rejected)
+  */
   const { data, isFetching, error } = useFetchPhotosQuery(album);
   const [addPhoto, addPhotoResults] = useAddPhotoMutation();
 
