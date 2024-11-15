@@ -1,1 +1,7 @@
-["Red", "Blue", "Green"]
+{
+  "colors": [
+    { "id": 1, "value": "Red" },
+    { "id": 2, "value": "Green" },
+    { "id": 3, "value": "Yellow" }
+  ]
+}
