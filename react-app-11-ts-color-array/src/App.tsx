@@ -1,40 +1,18 @@
 import { useState } from 'react';
-
-const colors = [
-  "Red",
-  "Blue",
-  "Green",
-  "Yellow",
-  "Orange",
-  "Purple",
-  "Pink",
-  "Brown",
-  "Cyan",
-  "Magenta",
-  "Lime",
-  "Teal",
-  "Indigo",
-  "Violet",
-  "Turquoise",
-  "Gold",
-  "Silver",
-  "Beige",
-  "Lavender",
-  "Peach"
-];
-
+import ShowColorsArray from './components/ShowColorsArray';
+import { colorsList } from './constants/ListOfColors';
 
 function App() {
   const [colorArray, setColorArray] = useState<string[]>([  "Red",
   "Blue",
   "Green",]);
   const handleAddColor = () => {
-    const color: string = colors[Math.floor(Math.random() * colors.length)];
+    const color: string = colorsList[Math.floor(Math.random() * colorsList.length)];
     setColorArray([...colorArray, color])
   }
   const handleRemoveColor = () =>{
     /*
-    violets React by directly removeing from state
+    violets React by directly removing from state
     setColorArray([...colorArray.pop()]);
     */
     // removes immutably
@@ -44,7 +22,7 @@ function App() {
     <div>
       <button onClick={handleAddColor}>++Add Color++</button>
       <button onClick={handleRemoveColor}>--Remove Color--</button>
-      {colorArray.map((color, index)=>{return <div key={index}>{color}</div>})}
+      <ShowColorsArray colors = {colorArray}/>
     </div>
   );
 }
