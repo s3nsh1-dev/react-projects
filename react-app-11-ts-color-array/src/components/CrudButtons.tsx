@@ -1,15 +1,24 @@
 import React, { FC } from 'react'
+import axios from 'axios'
+import {faker} from '@faker-js/faker'
 
 interface CrudProps {
 }
 const CrudButtons: FC<CrudProps> = () => {
-    const handleColorChange = (type: string) => {
+    const handleColorChange = async(type: string) => {
         if(type === 'add'){
-            console.log("Color Added")
+            const addColorToDataBase = await axios.post(`http://localhost:3001/colors`,{
+                id: faker.string.alphanumeric(10),
+                value: faker.color.human()
+            } )
+            console.log("Color Added", addColorToDataBase.data)
             
         }else if(type === 'remove'){
-            console.log("Color Removed")
-            
+            const dbData = await axios.get("http://localhost:3001/colors");
+            const dataItems = await dbData.data;
+            const lastItemId = dataItems[dataItems.length -1].id
+            const removeColorFromDataBase = await axios.delete(`http://localhost:3001/colors/${lastItemId}`)
+            console.log("Color Removed", removeColorFromDataBase.data)
         }
 
     }
