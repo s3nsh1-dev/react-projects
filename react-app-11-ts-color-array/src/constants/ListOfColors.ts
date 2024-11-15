@@ -1,0 +1,22 @@
+export const colorsList: string[] = [
+  "Red",
+  "Blue",
+  "Green",
+  "Yellow",
+  "Orange",
+  "Purple",
+  "Pink",
+  "Brown",
+  "Cyan",
+  "Magenta",
+  "Lime",
+  "Teal",
+  "Indigo",
+  "Violet",
+  "Turquoise",
+  "Gold",
+  "Silver",
+  "Beige",
+  "Lavender",
+  "Peach"
+];
