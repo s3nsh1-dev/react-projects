@@ -1,32 +1,39 @@
-import React from 'react'
-import axios from 'axios'
-import {useState, useEffect} from 'react'
-import DisplayFetchedData from './DisplayFetchedData'
+import { useState, useEffect } from "react";
+import DisplayFetchedData from "./DisplayFetchedData";
+import { fetchColors } from "../api/fetchColors";
+import { useColorContext } from "../hooks/useColorContext";
 
 interface colorProp {
-    id: number,
-    value: string,
+  id: number;
+  value: string;
 }
 
 export default function FetchOnlineData() {
-    const [result, setResult] = useState<colorProp[]>([])
-    useEffect(() => {
+  const [result, setResult] = useState<colorProp[]>([]);
+  const ContextValue = useColorContext();
+  console.log("Context Value", ContextValue?.data);
+  /*
+  use this context state update it and use it to display the
+  global colors state in Homepage.
+  */
+
+  useEffect(() => {
     const fetchingData = async () => {
-        try{
-            const fetching = await axios.get("http://localhost:3001/colors");
-            setResult(await fetching.data)
-            console.log("Data Fetched: ",await fetching.data)
-        }catch(err){
-            console.log("Fetching Error: ",err)
-        }
-    }
-    fetchingData()
-    },[])
-    return (
+      try {
+        const fetching = await fetchColors();
+        setResult(await fetching);
+        console.log("Data Fetched: ", fetching);
+      } catch (err) {
+        console.log("Fetching Error: ", err);
+      }
+    };
+    fetchingData();
+  }, []);
+  return (
     <div>
-        <DisplayFetchedData data={result}/>
+      <DisplayFetchedData data={result} />
     </div>
-  )
+  );
 }
 /*
 Using this with normal component function in typescript will cause errors
