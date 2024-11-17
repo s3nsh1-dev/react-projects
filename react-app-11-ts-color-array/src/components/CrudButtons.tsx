@@ -9,9 +9,9 @@ const CrudButtons = () => {
     if (type === "add") {
       const fullData = await addColors();
       handleColorState(fullData);
-      console.log(fullData);
     } else if (type === "remove") {
-      await deleteColors();
+      const fullData = await deleteColors();
+      handleColorState(fullData);
     }
   };
   useFetchColors();
