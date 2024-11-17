@@ -7,7 +7,6 @@ interface DataProp {
 const DisplayFetchedData = () => {
   // Explicitly cast stateData as DataProp[]
   const { stateData } = useColorContext() as { stateData: DataProp[] };
-  console.log("Fetching Data");
   const renderFetchedColorData = stateData.map((color) => {
     return <div key={color.id}>{color.value}</div>;
   });
