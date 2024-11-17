@@ -1,23 +1,28 @@
-import React, { FC } from 'react'
-import { addColors } from '../api/addColors'
-import deleteColors from '../api/deleteColors'
-interface CrudProps {
-}
-const CrudButtons: FC<CrudProps> = () => {
-    const handleColorChange = async(type: string) => {
-        if(type === 'add'){
-            addColors()
-        }else if(type === 'remove'){
-            deleteColors()
-        }
+import { addColors } from "../api/addColors";
+import deleteColors from "../api/deleteColors";
+import { useFetchColors } from "../hooks/useFetchColors";
+import { useColorContext } from "../hooks/useColorContext";
 
+const CrudButtons = () => {
+  const { handleColorState } = useColorContext();
+  const handleColorChange = async (type: string) => {
+    if (type === "add") {
+      const fullData = await addColors();
+      handleColorState(fullData);
+    } else if (type === "remove") {
+      const fullData = await deleteColors();
+      handleColorState(fullData);
     }
+  };
+  useFetchColors();
   return (
     <div>
-        <button onClick={()=>handleColorChange("add")}>++Add Color++</button>
-        <button onClick={()=>handleColorChange("remove")}>--Remove Color--</button>
+      <button onClick={() => handleColorChange("add")}>++Add Color++</button>
+      <button onClick={() => handleColorChange("remove")}>
+        --Remove Color--
+      </button>
     </div>
-  )
-}
+  );
+};
 
 export default CrudButtons;

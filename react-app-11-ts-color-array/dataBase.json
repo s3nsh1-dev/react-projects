@@ -1,20 +1,48 @@
 {
   "colors": [
     {
-      "id": 1,
+      "id": "1",
       "value": "Red"
     },
     {
-      "id": 2,
+      "id": "2",
       "value": "Green"
     },
     {
-      "id": 3,
+      "id": "3",
       "value": "Yellow"
     },
     {
       "id": "hqDNZ8WCCE",
       "value": "turquoise"
+    },
+    {
+      "id": "QFW8YCoqNp",
+      "value": "azure"
+    },
+    {
+      "id": "NZQaokUya0",
+      "value": "plum"
+    },
+    {
+      "id": "T4NPFN2bnO",
+      "value": "gold"
+    },
+    {
+      "id": "QMYUz5Sp3x",
+      "value": "maroon"
+    },
+    {
+      "id": "wA55FIo2DE",
+      "value": "silver"
+    },
+    {
+      "id": "fN14a54Ovq",
+      "value": "mint green"
+    },
+    {
+      "id": "FGHXnpA0Jx",
+      "value": "red"
     }
   ]
 }
