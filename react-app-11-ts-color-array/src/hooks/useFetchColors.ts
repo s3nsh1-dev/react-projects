@@ -1,20 +1,26 @@
 import { useEffect } from "react";
-import { useColorContext } from "../hooks/useColorContext";
+import { useColorAction } from "./useColorAction";
 import { fetchColors } from "../api/fetchColors";
 
+interface DataProp {
+  id: string; // Ensure this matches your API data
+  value: string;
+}
 export const useFetchColors = () => {
-    const { handleColorState } = useColorContext();
+  const { handleColorState } = useColorAction() as {
+    handleColorState: (fetchData: DataProp[]) => void;
+  };
 
-    useEffect(() => {
-        const fetchAndSetColors = async () => {
-            try {
-                const colors = await fetchColors();
-                handleColorState(colors); // Update the context state
-            } catch (err) {
-                console.error("Error fetching colors:", err);
-            }
-        };
+  useEffect(() => {
+    const fetchAndSetColors = async () => {
+      try {
+        const colors = await fetchColors();
+        handleColorState(colors); // Update the context state
+      } catch (err) {
+        console.error("Error fetching colors:", err);
+      }
+    };
 
-        fetchAndSetColors();
-    }, [handleColorState]); // Dependency ensures this runs only when `handleColorState` changes
+    fetchAndSetColors();
+  }, []);
 };

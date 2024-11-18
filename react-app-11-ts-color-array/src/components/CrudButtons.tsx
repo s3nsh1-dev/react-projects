@@ -1,10 +1,18 @@
 import { addColors } from "../api/addColors";
 import deleteColors from "../api/deleteColors";
 import { useFetchColors } from "../hooks/useFetchColors";
-import { useColorContext } from "../hooks/useColorContext";
+import { useColorAction } from "../hooks/useColorAction";
+
+interface DataProp {
+  id: string; // Ensure this matches your API data
+  value: string;
+}
 
 const CrudButtons = () => {
-  const { handleColorState } = useColorContext();
+  const { handleColorState } = useColorAction() as {
+    handleColorState: (fetchData: DataProp[]) => void;
+  };
+  console.log("CrudButtons.jsx");
   const handleColorChange = async (type: string) => {
     if (type === "add") {
       const fullData = await addColors();
