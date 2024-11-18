@@ -5,24 +5,29 @@ interface DataProp {
   value: string;
 }
 
-interface ColorContextState {
+interface StateContextState {
   stateData: DataProp[];
+}
+interface ActionContextState {
   handleColorState: (fetchData: DataProp[]) => void;
 }
 interface ProvideProps {
   children: ReactNode;
 }
-export const ColorContext = createContext<ColorContextState | null>(null);
+export const StateContext = createContext<StateContextState | null>(null);
+export const ActionContext = createContext<ActionContextState | null>(null);
 
 export const MyContextProvide: FC<ProvideProps> = ({ children }) => {
-  const [colorState, setColor] = useState<ColorContextState>({
-    stateData: [],
-    handleColorState: (fetchData) => {
-      // curly braces is imp. when binding pre and new
-      setColor((pre) => ({ ...pre, stateData: fetchData }));
-    },
-  });
+  const [colorState, setColor] = useState<DataProp[]>([]);
+
+  const handleColorState = (fetchData: DataProp[]) => {
+    setColor(fetchData);
+  };
   return (
-    <ColorContext.Provider value={colorState}>{children}</ColorContext.Provider>
+    <StateContext.Provider value={{ stateData: colorState }}>
+      <ActionContext.Provider value={{ handleColorState }}>
+        {children}
+      </ActionContext.Provider>
+    </StateContext.Provider>
   );
 };
