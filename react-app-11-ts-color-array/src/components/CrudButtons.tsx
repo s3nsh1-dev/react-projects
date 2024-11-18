@@ -5,6 +5,7 @@ import { useColorContext } from "../hooks/useColorContext";
 
 const CrudButtons = () => {
   const { handleColorState } = useColorContext();
+  console.log("CrudButtons.jsx");
   const handleColorChange = async (type: string) => {
     if (type === "add") {
       const fullData = await addColors();
