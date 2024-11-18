@@ -1,8 +1,6 @@
 import DisplayFetchedData from "./DisplayFetchedData";
-import { useFetchColors } from "../hooks/useFetchColors";
-
 export default function FetchOnlineData() {
-  useFetchColors();
+  console.log("FetchOnlineData.tsx");
   return (
     <div>
       <DisplayFetchedData />
