@@ -1,6 +1,5 @@
 import { addColors } from "../api/addColors";
 import deleteColors from "../api/deleteColors";
-import { useFetchColors } from "../hooks/useFetchColors";
 import { useColorAction } from "../hooks/useColorAction";
 
 interface DataProp {
@@ -22,7 +21,6 @@ const CrudButtons = () => {
       handleColorState(fullData);
     }
   };
-  useFetchColors();
   return (
     <div>
       <button onClick={() => handleColorChange("add")}>++Add Color++</button>

@@ -1,11 +1,13 @@
 // import OfflineApp from "./components/Offline/OfflineApp";
-import OnlineApp from "./components/OnlineApp";
+// import OnlineApp from "./components/OnlineApp";
+import ReduxVersionApp from "./redux-version/ReduxVersionApp";
 
 function App() {
   return (
     <div>
       {/* <OfflineApp/> */}
-      <OnlineApp />
+      {/* <OnlineApp /> */}
+      <ReduxVersionApp />
     </div>
   );
 }
