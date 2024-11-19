@@ -1,11 +1,16 @@
-import React from "react";
-import { useReducer } from "react";
+import { useDispatch } from "react-redux";
+import { deleteColor } from "../store";
 
 const DeleteButton = () => {
-  const dispatch = useReducer;
+  const dispatch = useDispatch();
+  const handleDelete = () => {
+    // dispatch(deleteColor());
+  };
   return (
     <div style={{ margin: "0px 10px" }}>
-      <button style={{ padding: "5px 10px" }}>--Delete last Entry--</button>
+      <button style={{ padding: "5px 10px" }} onClick={handleDelete}>
+        --Delete last Entry--
+      </button>
     </div>
   );
 };

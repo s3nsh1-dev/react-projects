@@ -1,11 +1,17 @@
 import React from "react";
-import { useReducer } from "react";
+import { useDispatch } from "react-redux";
+import { addColor } from "../store";
 
 const AddButton = () => {
-  const dispatch = useReducer;
+  const dispatch = useDispatch();
+  const handleAddingColors = () => {
+    // dispatch(addColor());
+  };
   return (
     <div>
-      <button style={{ padding: "5px 10px" }}>++Add More Data++</button>
+      <button style={{ padding: "5px 10px" }} onClick={handleAddingColors}>
+        ++Add More Data++
+      </button>
     </div>
   );
 };
