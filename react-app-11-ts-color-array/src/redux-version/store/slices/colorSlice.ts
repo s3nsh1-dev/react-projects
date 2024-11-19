@@ -1,26 +1,35 @@
-import { createSlice } from "@reduxjs/toolkit";
+// PayloadAction specifies the expected payload type
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+// Define the shape of the state
+interface ColorState {
+  isLoading: boolean;
+  colorHistory: { id: string; value: string }[]; // Replace with the actual shape of your color data
+  error: string | null;
+}
+const initialState: ColorState = {
+  isLoading: false,
+  colorHistory: [],
+  error: null,
+};
+
+interface ColorHistoryPropType {
+  id: string;
+  value: string;
+}
 
 export const colorSlice = createSlice({
   name: "colors",
-  initialState: {
-    isLoading: false,
-    colorHistory: [],
-    error: null,
-  },
+  initialState,
   reducers: {
-    addColor: (state, action) => {
-      state.colorHistory = action.payload; // -> for now
-      //   state.colorHistory.push(action.payload}); // -> preferred
+    addColor: (state, action: PayloadAction<ColorHistoryPropType[]>) => {
+      alert("addColor");
     },
-    fetchColors: (state, action) => {
-      state.colorHistory = action.payload;
+    fetchColors: (state, action: PayloadAction<ColorHistoryPropType[]>) => {
+      alert("fetchColors");
     },
-    deleteColor: (state, action) => {
-      state.colorHistory = action.payload; // -> for now
-      // preferred way to implement deleteColor
-      //   state.colorHistory = state.colorHistory.filter(
-      //     (color) => color.id !== action.payload
-      //   );
+    deleteColor: (state, action: PayloadAction<ColorHistoryPropType[]>) => {
+      alert("DeleteColor");
     },
   },
 });
