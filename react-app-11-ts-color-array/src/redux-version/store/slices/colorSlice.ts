@@ -22,14 +22,14 @@ export const colorSlice = createSlice({
   name: "colors",
   initialState,
   reducers: {
-    addColor: (state, action: PayloadAction<ColorHistoryPropType[]>) => {
-      alert("addColor");
+    addColor: (state, action: PayloadAction<ColorHistoryPropType>) => {
+      state.colorHistory.push(action.payload);
     },
     fetchColors: (state, action: PayloadAction<ColorHistoryPropType[]>) => {
-      alert("fetchColors");
+      state.colorHistory = action.payload;
     },
-    deleteColor: (state, action: PayloadAction<ColorHistoryPropType[]>) => {
-      alert("DeleteColor");
+    deleteColor: (state) => {
+      state.colorHistory.pop();
     },
   },
 });
