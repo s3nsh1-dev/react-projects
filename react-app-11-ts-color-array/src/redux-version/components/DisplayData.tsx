@@ -1,18 +1,17 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../store";
-import { getData } from "../store/thunks/getData";
 
 const DisplayData = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    const fetchingDatabaseInfo = async () => {
-      const colorFetched = await getData();
-      console.log("Color fetched", colorFetched);
-    };
-    fetchingDatabaseInfo();
-  }, []);
-  return <div style={{ fontWeight: "bold" }}></div>;
+  const weGotTheState = useSelector((state: RootState) => {
+    return state.colors.colorHistory;
+  });
+  let renderingReduxStateColors = null;
+  if (weGotTheState.length > 0) {
+    renderingReduxStateColors = weGotTheState.map((info) => {
+      return <div key={info.id}>{info.value}</div>;
+    });
+  }
+  return <div style={{ fontWeight: "bold" }}>{renderingReduxStateColors}</div>;
 };
 
 export default DisplayData;
