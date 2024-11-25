@@ -7,6 +7,7 @@ import { searchLoader } from "./pages/search/searchLoader";
 import DetailsPage from "./pages/details/DetailsPage";
 import { detailsLoader } from "./pages/details/detailsLoader";
 
+// comments upcoming
 const router = createBrowserRouter([
   {
     path: "/",
