@@ -1,7 +1,39 @@
-// import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./pages/Root";
+import HomePage from "./pages/home/HomePage";
+import { homeLoader } from "./pages/home/homeLoader";
+import SearchPage from "./pages/search/SearchPage";
+import { searchLoader } from "./pages/search/searchLoader";
+import DetailsPage from "./pages/details/DetailsPage";
+import { detailsLoader } from "./pages/details/detailsLoader";
 
-const App = () => {
-  return <h1 className='text-3xl font-bold underline m-5'>Hello world!</h1>;
-};
+// comments upcoming
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+        loader: homeLoader,
+      },
+      {
+        path: "/search",
+        element: <SearchPage />,
+        loader: searchLoader,
+      },
+      {
+        path: "/packages/:name",
+        element: <DetailsPage />,
+        loader: detailsLoader,
+      },
+    ],
+  },
+]);
+
+function App() {
+  return <RouterProvider router={router} />;
+}
 
 export default App;
